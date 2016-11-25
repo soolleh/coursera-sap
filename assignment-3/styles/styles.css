@@ -1,0 +1,122 @@
+h1 {
+  margin-bottom: 30px;
+}
+input[type="text"] {
+  width: 400px;
+  float: left;
+}
+.narrow-button {
+  float: left;
+  margin-left: 10px;
+  margin-top:-15px;
+}
+.outer-loader-div{
+  width: 10%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.5em;
+}
+.loader {
+  margin-left: 5px;
+  font-size: 30px;
+  float: left;
+  border-top: 1.1em solid rgba(147, 147, 147, 0.2);
+  border-right: 1.1em solid rgba(147, 147, 147, 0.2);
+  border-bottom: 1.1em solid rgba(147, 147, 147, 0.2);
+  border-left: 1.1em solid #676767;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 1.5s infinite linear;
+  animation: load8 1.5s infinite linear;
+}
+.loader,
+.loader:after {
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
+}
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+table 
+  {
+    border-collapse: collapse;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+th, td 
+  {
+    vertical-align: middle;
+    text-align: left;
+    padding: 15px;
+    width: auto;
+    font-weight: 400;
+    font-size: 1.2em;
+  }
+
+tr:nth-child(even)
+  {
+    background-color: #f2f2f2
+  }
+
+  th 
+  {
+    background-color: #4CAF50;
+    color: white;
+  }
+tr:hover
+  {
+    background-color: #aaa;
+    color:black;
+  }
+
+.remove-btn{
+  float: right;
+  color: black;
+  font-size: .8em;
+  padding: 5px;
+  border-radius: 5px; 
+}
+.description{
+  text-transform: capitalize;
+}
+.errorMessage{
+  font-weight: bold;
+  font-size: 1.5em;
+  padding: 20px;
+}
+.result-found{
+  font-size: 1.2em;
+  color: black
+  padding:20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.remove-btn:hover{
+  color: red;
+}
+.last-removed{
+  margin-left: 20px;
+  font-size: 1.2em;
+}

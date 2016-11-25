@@ -1,0 +1,19 @@
+<div ng-if="menu.items.length > 0" class="result-found">{{menu.items.length}} Result(s) Found </div>
+<table ng-if="menu.items.length > 0">
+  <tr>
+    <th>S.No</th>
+    <th>Name</th>
+    <th>Short Name</th>
+    <th style="text-align: center;">Description</th>
+  </tr>
+  <tr ng-repeat="menuItems in menu.items">
+    <td> {{$index + 1}}</td>
+    <td> {{menuItems.name}}</td>          
+    <td> {{menuItems.short_name}}</td>
+    <td> {{menuItems.description}}
+    <button class="remove-btn" ng-click="menu.onRemove({index: $index});">
+    &#10006 Don't Want This One</button></td>
+  </tr>
+</table><br>
+<hr ng-if="menu.items.length > 0" style="border: 2px dashed black;width: 50%;">
+
