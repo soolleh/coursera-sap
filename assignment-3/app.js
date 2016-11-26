@@ -4,8 +4,8 @@
 angular.module('NarrowItDownApp', [])
 .controller('NarrowItDownController', NarrowItDownController)
 .service('MenuSearchService', MenuSearchService)
-.constant('ApiBasePath', "https://davids-restaurant.herokuapp.com/menu_items.json")
-// .constant('ApiBasePath', "menu_items.json")
+ .constant('ApiBasePath', "https://davids-restaurant.herokuapp.com/menu_items.json")
+//.constant('ApiBasePath', "menu_items.json")
 .directive('foundItems', foundItemsDirective);
 
 function foundItemsDirective() {
@@ -28,13 +28,14 @@ function NarrowItDownController(MenuSearchService,$filter) {
 // check if search term is given if not don't call http request
     if ( searchTerm == undefined || searchTerm == "" ) {
        menu.items= "";/* Remove previous found items and then show error message*/
-       menu.errorMessage  = "Nothing Found In The Menu Description";
+       menu.errorMessage  = "Nothing Found";
     }
 //if search term is given call http request
     else{
     menu.setLoader = "Set loader";menu.errorMessage = "";menu.items = "";/* my liite attempt to show loader by setting loader div to trueby */
     var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
     promise.then(function (foundItems) {
+ 	  menu.errorMessage = "";  
       menu.setLoader = "";/*set loader to false after fetching contens*/
       menu.items= foundItems;      
     }).catch(function (error) {
@@ -82,7 +83,7 @@ function MenuSearchService($http, ApiBasePath,$filter) {
       foundItems = ($filter('filter')(menu_items,searchValue));
       //check if search term resulted in zero items return error
       if (foundItems.length == 0) {
-         throw new Error("Nothing Found In The Menu Description");
+         throw new Error("Nothing Found");
       }  
       else{
         return foundItems;

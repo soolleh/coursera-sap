@@ -114,6 +114,7 @@ tr:hover
   text-align: center;
 }
 .remove-btn:hover{
+  background: white;
   color: red;
 }
 .last-removed{

@@ -23,7 +23,7 @@
       </div>
       <div class="row">
         <div ng-if = "menu.setLoader" class="outer-loader-div"><div class="loader"></div><br>Loading....</div>
-        <div class="errorMessage" ng-if="menu.errorMessage">{{menu.errorMessage}}</div>
+        <div class="errorMessage alert alert-danger" ng-if="menu.errorMessage">{{menu.errorMessage}}</div>
         <found-items
           items="menu.items"
           on-remove="menu.removeItem(index)"></found-items>
