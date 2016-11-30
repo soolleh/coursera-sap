@@ -23,12 +23,23 @@ function SpinnerController($rootScope) {
     cancel = $rootScope.$on('$stateChangeSuccess',
     function(event, toState, toParams, fromState, fromParams){
       $ctrl.showSpinner = false;
+      $ctrl.error = false;
+    });
+    cancellers.push(cancel);
+
+    cancel = $rootScope.$on('$viewContentLoading', 
+    function(event, viewConfig){ 
+      $ctrl.showSpinner = true;
     });
     cancellers.push(cancel);
 
     cancel = $rootScope.$on('$stateChangeError',
-    function(event, toState, toParams, fromState, fromParams, error){
+    function(event, toState, toParams, fromState, fromParams, error,rejection){
       $ctrl.showSpinner = false;
+      event.preventDefault();
+      $ctrl.error = "Show Error";
+      $ctrl.errorText = error.statusText;
+      
     });
     cancellers.push(cancel);
   };
@@ -40,5 +51,4 @@ function SpinnerController($rootScope) {
   };
 
 };
-
 })();
