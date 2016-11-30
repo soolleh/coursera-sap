@@ -5,10 +5,10 @@ angular.module('data')
 .controller('ItemDetailController', ItemDetailController);
 
 
-ItemDetailController.$inject = ['$stateParams','item'];
-function ItemDetailController($stateParams,item) {
+ItemDetailController.$inject = ['item'];
+function ItemDetailController(item) {
   var itemDetails = this;
   itemDetails.items = item.data.menu_items;
-  itemDetails.category = $stateParams.category;
+  itemDetails.category = item.data.category.name;
 }
 })();

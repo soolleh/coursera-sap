@@ -37,12 +37,12 @@ function RoutesConfig($stateProvider, $urlRouterProvider,$locationProvider) {
     controller: "ItemDetailController as itemDetails",
     resolve: {
       item: ['MenuDataService','$stateParams', function (MenuDataService,$stateParams) {
-        return MenuDataService.getItemsForCategory($stateParams.categoryShortName);
+        return MenuDataService.getItemsForCategory($stateParams.categoryShortName,$stateParams.category);
       }]
     },
     params : {
       categoryShortName : null,
-      category : null
+      category : null,  
     }
   });
 }

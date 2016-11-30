@@ -8,8 +8,8 @@ angular.module('data')
 
 
 
-MenuDataService.$inject = ['$http', 'ApiBasePath','ApiBasePath2']
-function MenuDataService($http, ApiBasePath,ApiBasePath2) {
+MenuDataService.$inject = ['$http', 'ApiBasePath','ApiBasePath2','$filter']
+function MenuDataService($http, ApiBasePath,ApiBasePath2,$filter) {
   var service = this;
   service.getAllCategories = function () {
       var response =  $http({
@@ -19,11 +19,13 @@ function MenuDataService($http, ApiBasePath,ApiBasePath2) {
     return response;
   };
 
-  service.getItemsForCategory = function (categoryShortName) {
+  service.getItemsForCategory = function (categoryShortName,category) {
+      var shortName =  $filter('uppercase')(categoryShortName);
       var response =  $http({
         method: "GET",
-        url: (ApiBasePath2) + categoryShortName
+        url: (ApiBasePath2) + shortName
     });
+      response.category = category;
     return response;
   };
 }

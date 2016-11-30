@@ -1,3 +1,5 @@
-
-<h1>Here Are Your Menu Items For Categroy {{itemDetails.category}} </h1>
+<h1>Here Are Your Menu Items For Categroy : {{itemDetails.category}}</span> </h1>
+<a ui-sref="home" ui-sref-active="activeTab">Home</a><span style="font-size: 2em;"> &lt;</span>
+<a ui-sref="categories" ui-sref-active="activeTab">Category</a><span style="font-size: 2em;"> &lt;</span>
+<span class="activeTab">{{itemDetails.category}}</span><br>
 <item-detail items="itemDetails.items"></item-detail>
