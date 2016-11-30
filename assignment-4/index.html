@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app='MenuApp'>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Welcome to our Restaurant</title>
+
+  </head>
+  <body>
+  <div class="container">
+    <ui-view>
+        <div class="row loading-spinner">
+            <img src="images/flickr-loading.gif" alt="loading">
+            <span class="text-center text-heading" style="font-size: 1.5em;">Loading....</span>
+        </div>
+    </ui-view>
+  </div>
+  <loading-spinner></loading-spinner>
+    <!-- Libraries -->
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-ui-router.min.js"></script>
+
+    <!-- Modules -->
+    <script src="src/shoppinglist/menuapp.module.js"></script>
+    <script src="src/shoppinglist/data.module.js"></script>
+    <script src="src/spinner/spinner.module.js"></script>
+
+    <!-- Routes -->
+    <script src="src/routes.js"></script>
+
+    <!-- 'ShoppingList' module artifacts -->
+    <script src="src/shoppinglist/categories.component.js"></script>
+    <script src="src/shoppinglist/categories.controller.js"></script>
+    <script src="src/shoppinglist/menudata.service.js"></script>
+    <script src="src/shoppinglist/item-detail.controller.js"></script>
+    <script src="src/shoppinglist/items.component.js"></script>
+
+
+    <!-- 'Spinner' module artifacts -->
+    <script src="src/spinner/loadingspinner.component.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,91 @@
+body {
+  font-size: 1.2em;
+  background:url('../images/paisley.png');
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  display: none;
+}
+
+.errorMessage{
+  margin-top: 20px;
+  font-size: 1.5em;
+  color: red;
+}
+.activeTab{
+  font-weight: bold;
+  background: cyan;
+  font-size: 1.5em;
+  color: black;
+  margin-right: 5px;
+  margin-left: 5px;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+
+}
+
+a{
+  list-style-type: none;
+  text-decoration: none;
+  margin-right: 5px;
+  margin-left: 5px;
+  padding: 5px;
+  font-size: 1.5em;
+  border: 1px solid black;
+}
+.welcome-note{
+  margin-bottom: 20px;
+}
+a:hover{
+  text-decoration: none;
+  border: none;
+}
+a:visited,a:link{
+  text-decoration: none;
+  color: black;
+}
+.category-list{
+  list-style-type: none;
+  margin-top: 30px;
+  margin-left: -10px;
+  background: lavender;
+  padding: 20px;
+  margin: 10px;
+}
+.item-detail{
+  list-style-type: none;
+  margin-top: 30px;
+  margin-left: -10px;
+  background: lavender;
+  padding: 20px;
+  margin: 10px;
+  font-size: 1.5em;
+}
+.category-list:hover{
+    box-shadow: 0 1px 5px 1px #006089;
+    cursor: pointer;
+}
+.category-list-link{
+  border: none;
+  list-style-type: none;
+  margin: 0px;
+  margin-bottom: 15px;
+  padding: 0px;
+}
+.loading-spinner{
+  margin-top: 20px;
+  width: 1%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-heading{
+  font-weight: bold;
+
+}
