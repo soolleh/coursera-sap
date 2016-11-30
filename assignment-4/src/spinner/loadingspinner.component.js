@@ -22,14 +22,10 @@ function SpinnerController($rootScope) {
 
     cancel = $rootScope.$on('$stateChangeSuccess',
     function(event, toState, toParams, fromState, fromParams){
+      $rootScope.title = toState.data.title;
+      console.log(toState.data.title);
       $ctrl.showSpinner = false;
       $ctrl.error = false;
-    });
-    cancellers.push(cancel);
-
-    cancel = $rootScope.$on('$viewContentLoading', 
-    function(event, viewConfig){ 
-      $ctrl.showSpinner = true;
     });
     cancellers.push(cancel);
 
