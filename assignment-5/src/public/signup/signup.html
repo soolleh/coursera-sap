@@ -1,0 +1,69 @@
+<div class="container">
+      <style>  
+           li{  
+                cursor:pointer;  
+           }  
+           li:hover  
+           {  
+                background-color:#f9f9f9;  
+           }  
+           </style>
+<div class="row" ng-if="!signupCtrl.isAlreadySignup && signupCtrl.show">
+<h3 class="text-center">Sign Up Form</h3>
+<div class="signUpForm" style="width: 50%;margin-right: auto;margin-left: auto;">
+  <div class="col-sm-12">
+<form name="signupform" novalidate>
+  <div class="form-group">
+    <label class="control-label" for="firstname" >First Name <sup>*</sup></label>
+    <input class="form-control" id="firstname" name="firstname" type="text" value="" ng-model="signupCtrl.formInfo.firstName" required ng-pattern="signupCtrl.alphabetPattern"
+    placeholder="First Name No Special Characters">
+    <span ng-if="signupform.firstname.$dirty && (signupform.firstname.$error.required || signupform.firstname.$error.pattern) && signupform.firstname.$touched">Please enter the Valid FirstName. No Special Characters or numbers are allowed</span>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label" for="lastname">Last Name<sup>*</sup></label>
+    <input class="form-control" id="lastname" name="lastname" type="text" value="" ng-model="signupCtrl.formInfo.lastName" required ng-pattern="signupCtrl.alphabetPattern" 
+    placeholder="Last Name No Special Characters">
+    <span ng-if="signupform.lastname.$dirty && (signupform.lastname.$error.required || signupform.lastname.$error.pattern) && signupform.lastname.$touched">Please enter the Valid LastName. No Special Characters or numbers are allowed</span>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label" for="emailAddress">Email<sup>*</sup></label>
+    <input class="form-control" id="emailAddress" name="emailAddress" type="email" value="" ng-model="signupCtrl.formInfo.email" required ng-pattern="signupCtrl.emailPattern"
+    placeholder="example@mail.com">
+    <span ng-if="signupform.emailAddress.$dirty && (signupform.emailAddress.$error.required || signupform.emailAddress.$error.pattern) && signupform.emailAddress.$touched">Please enter the valid Email Address</span>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label" for="mobileNo">Mobile No<sup>*</sup></label>
+    <input class="form-control" id="mobileNo" name="mobileNo" type="text" value="" ng-model="signupCtrl.formInfo.mobile" required ng-pattern="signupCtrl.mobilePattern" 
+    maxlength="10" ng-minlength="10" placeholder="10 Digit Mobile No">
+    <span ng-if="signupform.mobileNo.$dirty  && (signupform.mobileNo.$error.required || signupform.mobileNo.$error.pattern  || signupform.mobileNo.$error.minlength)
+    && signupform.mobileNo.$touched">Please enter your valid 10 digit mobile Number</span>
+  </div>
+
+  <div class="form-group">
+     <label class="control-label" for="menuShort">Favorite Dish<sup>*</sup></label>
+    <input class="form-control" id="menuShort" name="menuShort" type="text" value="" 
+    ng-model="signupCtrl.formInfo.menuShort" placeholder="Dish (Short Name)"> 
+    <span ng-if="signupCtrl.errorBoolean">{{signupCtrl.errorMessage}}</span>
+  </div>
+
+  <div class="form-group" style="height: 35px;">
+      <div style="float: right;">
+        <button type="reset" class="btn btn-default">Cancel</button>
+        <button class="btn btn-primary" ng-disabled="signupform.$invalid" ng-click="signupCtrl.formSubmit(signupform)">Submit</button>
+      </div>
+  </div>
+      
+</form>
+</div>
+</div>
+</div>
+    <div class="alert alert-dismissible alert-success" ng-if="signupCtrl.successBoolean">
+        <strong>{{signupCtrl.successMessage}}<br>Please Visit <a ui-sref="public.myInfo">My Info</a></strong>.
+      </div>
+    <div class="row" ng-if="signupCtrl.isAlreadySignup">
+        Already Signed Up. Please Visit <a ui-sref="public.myInfo">My Info</a>
+    </div>
+</div>
